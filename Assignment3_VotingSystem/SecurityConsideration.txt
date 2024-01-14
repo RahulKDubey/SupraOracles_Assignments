@@ -15,7 +15,7 @@ Consideration: keccak256 is used for string comparison to avoid vulnerabilities 
 
 4.	Access Control with onlyOwner:
 
-Consideration: Critical functions, such as adding candidates and determining the winner, are restricted to the contract owner using the onlyOwner modifier.
+Consideration: Critical functions, such as adding candidates is restricted to the contract owner using the onlyOwner modifier.
 
 
 5.	Input Validation with require Statements:
