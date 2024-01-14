@@ -67,7 +67,7 @@ contract MultiSig {
     }
 
     // Function to confirm a transaction
-    function confirmTransaction(uint _transactionId) public {
+    function confirmTransaction(uint _transactionId) onlyOwner public {
         require(_transactionId < transactions.length, "Invalid Transaction Id");
         require(!isConfirmed[_transactionId][msg.sender], "Transaction Is Already Confirmed By The Owner");
 
