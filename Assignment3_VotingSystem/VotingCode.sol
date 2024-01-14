@@ -109,7 +109,7 @@ contract Voting {
     }
 
     // Define a function to get the winner of the election
-    function getWinner() public view onlyOwner returns (string memory) {
+    function getWinner() public view returns (string memory) {
         
         string memory winner; // Declare a variable to store the winner's name
        
