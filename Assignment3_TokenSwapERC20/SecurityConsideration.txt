@@ -1,0 +1,27 @@
+1.	Token Transfer Reentrancy Protection:
+
+The contract follows the "Checks-Effects-Interactions" pattern, which helps guard against reentrancy attacks. The contract first checks conditions, then performs state changes, and finally interacts with external contracts. This reduces the risk of reentrancy vulnerabilities.
+
+
+2.	Safe Math Operations:
+
+The contract uses safe math operations when dealing with arithmetic calculations to prevent overflow and underflow vulnerabilities. 
+
+amountReceived = _amount * rate / 10**18;
+
+
+3.	Token Transfer Checks:
+
+Before transferring tokens, the contract checks the token balances to ensure that the contract holds enough funds. This helps prevent scenarios where the contract might be drained of tokens due to insufficient balances.
+
+require(IERC20(tokenB).balanceOf(address(this)) >= amountReceived, "Insufficient Token B balance");
+
+
+4.	Authorization with Modifier:
+
+The onlyOwner modifier is used to restrict certain functions, such as updating the exchange rate, to only be callable by the owner. This prevents unauthorized individuals from altering critical parameters that could impact the contract's functionality.
+
+modifier onlyOwner() {
+    require(msg.sender == owner, "Only the owner can call this function");
+    _;
+}

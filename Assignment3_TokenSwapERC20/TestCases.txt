@@ -1,0 +1,69 @@
+1.	Initializing the Swap Contract:
+
+	Test Case 1: Deploy the Swap contract with correct initial state
+
+Input: Deployment parameters (Token A, Token B, Exchange Rate)
+Expected Output: Contract is deployed with the correct initial state
+
+	Test Case 2: Attempt to deploy with an invalid initial exchange rate
+
+Input: Negative exchange rate
+Expected Output: Revert - "Invalid initial exchange rate"
+
+
+2.	Updating the Exchange Rate:
+
+	Test Case 3: Owner updates the exchange rate successfully
+
+Input: New exchange rate
+Expected Output: RateUpdated event is emitted, and the exchange rate is updated
+
+	Test Case 4: Non-owner attempts to update the exchange rate
+
+Input: New exchange rate
+Expected Output: Revert - "Only the owner can call this function"
+
+
+3.	Swapping Tokens:
+
+	Test Case 5: Swap Token A for Token B successfully
+
+Input: Token A, Amount
+Expected Output: Swapped event is emitted, and the tokens are exchanged correctly
+
+	Test Case 6: Swap Token B for Token A successfully
+
+Input: Token B, Amount
+Expected Output: Swapped event is emitted, and the tokens are exchanged correctly
+
+	Test Case 7: Attempt to swap with an invalid token address
+
+Input: Invalid token address, Amount
+Expected Output: Revert - "Invalid token address"
+
+	Test Case 8: Attempt to swap with insufficient Token B balance
+
+Input: Token A, Amount
+Expected Output: Revert - "Insufficient Token B balance"
+	Test Case 9: Attempt to swap with insufficient Token A balance
+
+Input: Token B, Amount
+Expected Output: Revert - "Insufficient Token A balance"
+
+
+4.	Edge Cases:
+
+	Test Case 10: Attempt to swap with zero amount
+
+Input: Token A, 0
+Expected Output: Revert - "Invalid amount"
+
+	Test Case 11: Attempt to swap with the maximum uint256 amount
+
+Input: Token B, max uint256
+Expected Output: Swapped event is emitted, and the tokens are exchanged correctly
+
+	Test Case 12: Attempt to swap with an invalid exchange rate (rate = 0)
+
+Input: Token A, Amount
+Expected Output: Revert - "Invalid exchange rate"

@@ -1,0 +1,28 @@
+1.	ERC-20 Interface:
+
+The contract uses the ERC-20 interface to interact with Token A and Token B.
+
+
+2.	Constructor for Initialization:
+
+The constructor initializes the contract with the addresses of Token A, Token B, and the initial exchange rate. 
+
+
+3.	Owner-Based Rate Update:
+
+The contract includes a modifier (onlyOwner) and a function (updateRate) that allows the owner to update the exchange rate. This is a security measure to prevent unauthorized parties from modifying the rate, and it provides flexibility for rate adjustments if needed.
+
+
+4.	Event Logging:
+
+The contract emits events (RateUpdated and Swapped) to log important state changes. 
+
+
+5.	Swap Function:
+
+The swap function allows users to exchange Token A for Token B and vice versa based on the predefined exchange rate. The function includes proper checks, such as verifying the validity of the token address, checking token balances before transfers, and ensuring that the correct amount of tokens is received.
+
+
+6.	Safe Arithmetic Operations:
+
+The contract uses safe arithmetic operations to prevent overflow or underflow issues when calculating token amounts and exchange rates. For example, the calculations involving multiplication and division include appropriate scaling factors (10**18) to avoid precision errors.
