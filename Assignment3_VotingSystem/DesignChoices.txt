@@ -1,0 +1,68 @@
+1.	Separation of Concerns:
+
+Choice: Voter and candidate information are stored in separate structs.
+
+Explanation: This design choice enhances readability and maintainability by organizing data related to voters and candidates independently. It also follows the principle of separation of concerns, making each struct responsible for its specific type of data.
+
+
+2.	Use of Structs:
+
+Choice: Voter and Candidate information is encapsulated in structs.
+
+Explanation: Utilizing structs provides a clean and organized way to structure and group related data. It enhances code readability and makes it easier to understand the properties associated with voters and candidates.
+
+
+3.	Mapping for Address and Name Lookup:
+
+Choice: Voters are mapped by their addresses, and candidates are mapped by their names.
+
+Explanation: This design choice enables efficient lookup and retrieval of voter and candidate information using their unique identifiers. Mappings offer constant-time complexity for data retrieval, optimizing the contract's performance.
+
+
+4.	Dynamic Array for Candidate Names:
+
+Choice: Candidate names are stored in a dynamic array.
+
+Explanation: Using a dynamic array for candidate names allows for the addition of candidates without a predefined limit. It accommodates a flexible number of candidates, making the contract adaptable to different election scenarios.
+
+
+5.	Owner-Based Access Control:
+
+Choice: The onlyOwner modifier restricts certain functions to be callable only by the contract owner.
+
+Explanation: This design choice ensures that critical functions, such as adding candidates or retrieving the winner, can only be executed by the contract owner. It enhances security by preventing unauthorized access to functions that could potentially impact the integrity of the voting process.
+
+
+6.	String Comparison with keccak256:
+
+Choice: Checking for existing candidates involves using keccak256 hashes for string comparison.
+
+Explanation: Utilizing keccak256 for string comparison helps avoid potential vulnerabilities related to string comparison in Solidity. It ensures a secure and unique comparison, guarding against attacks that might attempt to exploit string comparison vulnerabilities.
+
+
+7.	Event Logging for Transparency:
+
+Choice: Important actions such as voter registration, candidate addition, and vote casting are logged with events.
+
+Explanation: Logging events provides transparency on the blockchain, allowing external entities to monitor and verify critical actions. It facilitates auditing and enhances trust by making key actions visible on the blockchain.
+
+
+8.	Gas Efficiency:
+
+Choice: Efforts have been made to minimize gas costs where possible.
+
+Explanation: Gas efficiency is crucial for blockchain applications. Minimizing gas costs reduces transaction fees for users and helps guard against potential denial-of-service (DoS) attacks by keeping gas consumption reasonable.
+
+
+9.	Thorough Input Validation:
+
+Choice: Extensive use of require statements for input validation.
+
+Explanation: Ensuring valid inputs through require statements helps prevent potential exploits and ensures that the contract operates with reliable and expected data. This is critical for maintaining the integrity of the voting process.
+
+
+10.	Winner Calculation:
+
+Choice: Determining the winner is based on the candidate with the highest vote count.
+
+Explanation: Calculating the winner based on the maximum vote count ensures a straightforward and secure method for determining the election outcome. It avoids potential vulnerabilities related to incorrectly determining the winner.
