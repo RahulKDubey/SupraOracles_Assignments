@@ -1,0 +1,116 @@
+1.	Initialization:
+
+	Test Case 1: Deploy the contract with valid owners and confirmation requirements.
+
+Input: Owner addresses, Confirmation requirements
+Expected Output: Contract is deployed successfully.
+
+
+2.	Submit Transaction:
+
+	Test Case 2: Submit a transaction with a valid recipient address and non-zero value.
+
+Input: Receiver address, Value
+Expected Output: Transaction is added to the transactions array, and the TransactionSubmitted event is emitted.
+
+
+3.	Confirm Transaction:
+
+	Test Case 3: Confirm a submitted transaction with an owner account.
+
+Input: Transaction ID
+Expected Output: Transaction is confirmed, and the TransactionConfirmed event is emitted.
+
+
+4.	Execute Transaction (only callable by owners):
+
+
+	Test Case 4: Execute a transaction with the required confirmations.
+
+Input: Transaction ID
+Expected Output: Transaction is executed, and the TransactionExecuted event is emitted.
+
+
+5.	Multiple Confirmations:
+
+	Test Case 5: Submit a transaction and ensure it requires multiple confirmations to execute.
+
+Input: Receiver address, Value
+Expected Result: Transaction is confirmed and executed only when the required confirmations are met.
+
+
+6.	Rejection of Invalid Owners:
+
+	Test Case 6: Attempt to confirm a transaction with an account that is not an owner.
+
+Input: Transaction ID
+Expected Result: Transaction confirmation fails, and an error is raised.
+
+
+7.	Rejection of Duplicate Confirmations:
+
+	Test Case 7: Attempt to confirm the same transaction multiple times with the same owner.
+
+Input: Transaction ID
+Expected Result: Only one confirmation is registered per owner for a given transaction.
+
+
+8.	Rejection of Repeated Execution:
+
+	Test Case 8: Attempt to execute a transaction that has already been executed.
+
+Input: Transaction ID
+Expected Result: Execution fails, and an error is raised.
+
+
+9.	Rejection of Insufficient Confirmations:
+
+	Test Case 9: Submit a transaction with a confirmation requirement that is higher than the number of owners.
+
+Input: Receiver address, Value
+Expected Result: Transaction cannot be confirmed or executed, and an error is raised.
+
+
+10.	Gas Limit Testing:
+
+	Test Case 10: Submit, confirm, and execute a transaction to ensure gas limits are well within acceptable ranges.
+
+Input: Receiver address, Value
+Expected Result: All transactions are completed successfully without running out of gas.
+
+
+11.	Submit Transaction with Zero Value:
+
+	Test Case 11: Submit a transaction with a zero value.
+
+Input: Receiver address
+Expected Result: Transaction is rejected, and an error is raised.
+
+
+12.	Submit Transaction with Invalid Receiver:
+
+	Test Case 12: Submit a transaction with an invalid (zero) receiver address.
+
+Input: Value
+Expected Result: Transaction is rejected, and an error is raised.
+
+
+13.	Confirmation of Non-existent Transaction:
+
+	Test Case 13: Attempt to confirm a transaction that does not exist.
+Input: Transaction ID
+Expected Result: Confirmation fails, and an error is raised.
+
+
+14.	Execution of Non-existent Transaction:
+
+	Test Case 14: Attempt to execute a transaction that does not exist.
+Input: Transaction ID
+Expected Result: Execution fails, and an error is raised.
+
+
+15.	Ownership Validation:
+
+	Test Case 15: Attempt to deploy a contract with an invalid (zero) owner address.
+Input: Invalid owner addresses
+Expected Result: Contract deployment fails, and an error is raised.
