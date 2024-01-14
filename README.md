@@ -1,6 +1,6 @@
 # SupraOracles_Assignments
 
-For the Decentralised Voting code :
+FOR THE DECENTRALISED VOTING CODE :
 
 
   The owner can only add candidates.
@@ -10,12 +10,12 @@ For the Decentralised Voting code :
   rest of the functions are simple to use.
 
 
-  For Token Swap of ERC 20 tokens :
+FOR TOKEN SWAP OF ERC-20 TOKENS :
 
   The constructor input field will be token address of A and B and the exchange rate.
 
 
-  For Multi-Signature Wallet :
+FOR MULTI-SIGNATURE WALLET :
 
 
   STEP 1 : The constructor have two inputs the owner field and confirmations field 
